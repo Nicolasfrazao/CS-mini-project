@@ -1,0 +1,14 @@
+c:\Users\nicol\OneDrive\Área de Trabalho\TurnOFF\obj\Release\net8.0\TurnOFF.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\nicol\OneDrive\Área de Trabalho\TurnOFF\obj\Release\net8.0\TurnOFF.AssemblyInfoInputs.cache
+c:\Users\nicol\OneDrive\Área de Trabalho\TurnOFF\obj\Release\net8.0\TurnOFF.AssemblyInfo.cs
+c:\Users\nicol\OneDrive\Área de Trabalho\TurnOFF\obj\Release\net8.0\TurnOFF.csproj.CoreCompileInputs.cache
+c:\Users\nicol\OneDrive\Área de Trabalho\TurnOFF\bin\Release\net8.0\TurnOFF.exe
+C:\Users\nicol\OneDrive\Área de Trabalho\TurnOFF\bin\Release\net8.0\TurnOFF.deps.json
+C:\Users\nicol\OneDrive\Área de Trabalho\TurnOFF\bin\Release\net8.0\TurnOFF.runtimeconfig.json
+c:\Users\nicol\OneDrive\Área de Trabalho\TurnOFF\bin\Release\net8.0\TurnOFF.dll
+c:\Users\nicol\OneDrive\Área de Trabalho\TurnOFF\bin\Release\net8.0\TurnOFF.pdb
+c:\Users\nicol\OneDrive\Área de Trabalho\TurnOFF\obj\Release\net8.0\TurnOFF.dll
+c:\Users\nicol\OneDrive\Área de Trabalho\TurnOFF\obj\Release\net8.0\refint\TurnOFF.dll
+c:\Users\nicol\OneDrive\Área de Trabalho\TurnOFF\obj\Release\net8.0\TurnOFF.pdb
+C:\Users\nicol\OneDrive\Área de Trabalho\TurnOFF\obj\Release\net8.0\TurnOFF.genruntimeconfig.cache
+C:\Users\nicol\OneDrive\Área de Trabalho\TurnOFF\obj\Release\net8.0\ref\TurnOFF.dll

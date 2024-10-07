@@ -1,0 +1,4 @@
+C:\Users\nicol\OneDrive\Área de Trabalho\TurnOFF\obj\Debug\net8.0\TurnOFF.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nicol\OneDrive\Área de Trabalho\TurnOFF\obj\Debug\net8.0\TurnOFF.AssemblyInfoInputs.cache
+C:\Users\nicol\OneDrive\Área de Trabalho\TurnOFF\obj\Debug\net8.0\TurnOFF.AssemblyInfo.cs
+C:\Users\nicol\OneDrive\Área de Trabalho\TurnOFF\obj\Debug\net8.0\TurnOFF.csproj.CoreCompileInputs.cache
