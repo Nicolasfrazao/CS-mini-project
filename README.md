@@ -1,1 +1,1 @@
-Little project to turn off a pc 
+A streamlined automation solution designed to remotely power down a computer with precision and efficiency. This project demonstrates a mastery of system control and power management, offering a seamless, user-friendly interface for optimized shutdown procedures. Perfect for enhancing productivity, conserving energy, and maintaining system longevity with a simple yet impactful tool
