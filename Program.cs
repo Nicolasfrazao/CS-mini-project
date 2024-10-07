@@ -29,6 +29,7 @@ public class TurnOff
             while (DateTime.Now < targetTime)
             {
                 Thread.Sleep(100);
+                Console.WriteLine($"Time to turn off: {timeDifference}");
             }
             Console.WriteLine("Shutting down the computer...");
             System.Diagnostics.Process.Start("shutdown", "/s /t 0");
@@ -63,7 +64,9 @@ public class TurnOff
             Console.Write("Enter the time in 24-hour format (HH:mm): ");
 
             // Read the user's input in one line
+            #pragma warning disable CS8602 // Dereference of a possibly null reference.
             string[] input = Console.ReadLine().Split(':');
+            #pragma warning restore CS8602 // Dereference of a possibly null reference.
 
             // Check if the input is valid
             if (input.Length == 2 && int.TryParse(input[0], out int hour) && int.TryParse(input[1], out int minute) && hour >= 0 && hour < 24 && minute >= 0 && minute < 60) {

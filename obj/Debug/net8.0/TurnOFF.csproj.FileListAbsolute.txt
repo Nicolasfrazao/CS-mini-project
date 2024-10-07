@@ -2,3 +2,14 @@ C:\Users\nicol\OneDrive\Área de Trabalho\TurnOFF\obj\Debug\net8.0\TurnOFF.Gener
 C:\Users\nicol\OneDrive\Área de Trabalho\TurnOFF\obj\Debug\net8.0\TurnOFF.AssemblyInfoInputs.cache
 C:\Users\nicol\OneDrive\Área de Trabalho\TurnOFF\obj\Debug\net8.0\TurnOFF.AssemblyInfo.cs
 C:\Users\nicol\OneDrive\Área de Trabalho\TurnOFF\obj\Debug\net8.0\TurnOFF.csproj.CoreCompileInputs.cache
+C:\Users\nicol\OneDrive\Área de Trabalho\TurnOFF\bin\Debug\net8.0\TurnOFF.exe
+C:\Users\nicol\OneDrive\Área de Trabalho\TurnOFF\bin\Debug\net8.0\TurnOFF.deps.json
+C:\Users\nicol\OneDrive\Área de Trabalho\TurnOFF\bin\Debug\net8.0\TurnOFF.runtimeconfig.json
+C:\Users\nicol\OneDrive\Área de Trabalho\TurnOFF\bin\Debug\net8.0\TurnOFF.dll
+C:\Users\nicol\OneDrive\Área de Trabalho\TurnOFF\bin\Debug\net8.0\TurnOFF.pdb
+C:\Users\nicol\OneDrive\Área de Trabalho\TurnOFF\obj\Debug\net8.0\TurnOFF.sourcelink.json
+C:\Users\nicol\OneDrive\Área de Trabalho\TurnOFF\obj\Debug\net8.0\TurnOFF.dll
+C:\Users\nicol\OneDrive\Área de Trabalho\TurnOFF\obj\Debug\net8.0\refint\TurnOFF.dll
+C:\Users\nicol\OneDrive\Área de Trabalho\TurnOFF\obj\Debug\net8.0\TurnOFF.pdb
+C:\Users\nicol\OneDrive\Área de Trabalho\TurnOFF\obj\Debug\net8.0\TurnOFF.genruntimeconfig.cache
+C:\Users\nicol\OneDrive\Área de Trabalho\TurnOFF\obj\Debug\net8.0\ref\TurnOFF.dll
