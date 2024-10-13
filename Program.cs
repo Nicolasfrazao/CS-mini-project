@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Threading;
+using Microsoft.VisualBasic;
+
+using Tests;
 
 public class TurnOff
 {
@@ -10,36 +13,85 @@ public class TurnOff
         /// </summary>
         public static void Main()
         {
+            RunTest();
+            Start();
         }
 
         public static void Start() {
-            
+            //TODO
+            //Manage the program
+        }
+
+        public static void placeholder() {
+            //TODO
+            //Placeholder for the time in console
+        }
+
+        public static void InputWithPlaceholder() {
+            //TODO
+            //Remove the placeholder and allow the user to input the time
+            //Provindg an example to the user
         }
 
         public static void Welcome() {
+            //TODO
+            //Gives a welcome message to the user
         }
 
-        pu
+        public string GetTime() {
+            //TODO
+            //Get the current time
+            string DateFormat = "HH : MM";
+
+            DateTime currentTime = DateTime.Now;
+            string CurrentTime = currentTime.ToString(DateFormat);
+
+            return CurrentTime;   
+        }
+        
+        public void SetTime(string time) {
+            //TODO
+            //Set the time to turn off the computer
+        }
+
+        public void SetLastInputs() {
+            //TODO
+            //Set the user last five inputs
+            //Create a list and add the last inputs
+        }
+
+        public string GetLastInputs() {
+            //TODO
+            //Get the user last five inputs
+            //Get the List of last inputs and return in order of the most recent
+            return "";
+        }
+
+        public void handleUserKeyInput() {
+            //TODO
+            //Get the user key input
+        }
+
+
         public static void TurnOffComputer() {
-
+            //TODO
+            //Turn off the computer
         }
 
-
+        public void BackGroundRun() {
+            //TODO
+            //Run the program in the background
+        }
 
         public static void RegisterInSystem() {
-            // Check if the program is already registered in the system
-            //##TODO
-            /*
-            if (IsRegistered()) {
-                Console.WriteLine("The program is already registered in the system.");
-                return;
-            }
-
-            // Register the program in the system
-            Register();
-            */
+            //TODO
+            //Register the user in the system
+            //Add the user to the system
+            //Add program to the system
+            //Program the Program to start with the pc
         }
     }
+
 }
 
 /*
