@@ -2,7 +2,6 @@
 using System.Threading;
 using Microsoft.VisualBasic;
 
-using Tests;
 
 public class TurnOff
 {
@@ -13,32 +12,60 @@ public class TurnOff
         /// </summary>
         public static void Main()
         {
-            RunTest();
-            Start();
+            Welcome();
+
+
         }
 
         public static void Start() {
             //TODO
             //Manage the program
+            Console.WriteLine("Starting . . . ");
+            HandleUserKeyInput();
         }
 
         public static void placeholder() {
             //TODO
             //Placeholder for the time in console
+            string PlaceHolderTime = "HH : MM";
+            Console.WriteLine(PlaceHolderTime);
+
+            int CursorStartPosition = Console.CursorLeft - PlaceHolderTime.Length;
+            Console.SetCursorPosition(CursorStartPosition, Console.CursorTop);
+
+            
+            string timeInput = InputWithPlaceholder(Pl);
+        
+            Console.WriteLine("\nYou entered: " + timeInput);
+
         }
 
-        public static void InputWithPlaceholder() {
+        static string InputWithPlaceholder(string placeholder) {
             //TODO
-            //Remove the placeholder and allow the user to input the time
-            //Provindg an example to the user
+            //Remove he placeholder and allow the user to input the time
+            //Providing an example to the user
+
+            return "";
         }
 
-        public static void Welcome() {
+        static void Welcome() {
             //TODO
             //Gives a welcome message to the user
+            Console.WriteLine("------------------------------------------------------------------");
+            Console.WriteLine("Welcome to the TurnOff program!");
+            Console.WriteLine("This program will turn off your computer at a specific time.");
+            Console.WriteLine("Please enter the time you would like to turn off your computer.");
+            Console.WriteLine("------------------------------------------------------------------"); Console.WriteLine("");
+            Console.WriteLine("Press Enter to continue... or Press Esc to exit the program.");         
+
+            HandleUserKeyInput();
+
+            if (HandleUserKeyInput() == true) {
+                Start();
+            }   
         }
 
-        public string GetTime() {
+        string GetTime() {
             //TODO
             //Get the current time
             string DateFormat = "HH : MM";
@@ -67,9 +94,29 @@ public class TurnOff
             return "";
         }
 
-        public void handleUserKeyInput() {
+        private static Boolean HandleUserKeyInput() {
             //TODO
             //Get the user key input
+
+            if ( Console.ReadKey(intercept: true).Key == ConsoleKey.Enter) {
+                Console.WriteLine("Continuing the program...");
+                return true;
+            }
+
+            if (Console.ReadKey(intercept: true).Key == ConsoleKey.Escape) {
+                //Exit the program
+                Console.WriteLine("Exiting the program...");
+                for (int i = 0; i < 5; i++) {
+                    Console.WriteLine("Exiting in " + (5 - i) + " seconds...");
+                    Thread.Sleep(1000);
+                }
+                Environment.Exit(0);
+                return false;
+            }
+            else {
+                Console.WriteLine("Invalid input. Please try again.");
+                return HandleUserKeyInput();
+            }
         }
 
 
