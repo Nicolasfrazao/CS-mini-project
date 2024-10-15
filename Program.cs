@@ -131,10 +131,12 @@ public class TurnOff
         }
         string GetTime() => DateTime.Now.ToString("HH:mm");
         
-        void SetTime(string time) {
+        void SetTime(object input) {
             // This method takes a string parameter, which is the time the user wants to set as the time to turn off the computer.
             // It parses the string into a DateTime object, and then checks if the user wants to confirm the time to turn off the computer.
             // If the user confirms, it sets the last input to the time entered by the user, and then calls the TurnOffComputer method to turn off the computer at the specified time.
+
+            var time = input.ToString();
 
             var DateFormat = "HH : MM";
             // Parse the string into a DateTime object
@@ -201,39 +203,37 @@ public class TurnOff
             }
 
             //Call the HandleLastInputsSelection method to handle the user's selection of the last inputs
-            HandleLastInputsSelection();
+            HandleLastInputsSelection(LastInputs);
 
             //Return a string with the user's last five inputs, separated by commas
             return string.Join(", ", LastInputs);
         }
 
 
-        private static void HandleLastInputsSelection() {
-            var SelectedInput = Console.ReadKey(intercept: true);
+        private void HandleLastInputsSelection(List<string> lastInputs) {
+            var selectedIndex = 0;
+            while (true) {
+                Console.SetCursorPosition(0, Console.CursorTop);
+                Console.WriteLine(lastInputs[selectedIndex]);
+                var key = Console.ReadKey(intercept: true).Key;
 
-            switch (SelectedInput.Key) {
-                case ConsoleKey.DownArrow:
-                    //TODO
-                    Console.SetCursorPosition(0, Console.CursorTop - 1);
-                    break;
-                case ConsoleKey.UpArrow:
-                    break;
-
-                case ConsoleKey.Enter:
-                    var currentInput = GetLastInputs[Console.GetCursorPosition().Top - 1];
-                    SetTime(currentInput);
-                    break;
-
-                case ConsoleKey.Escape:
-                    //Exit the program
-                    Console.Clear();
-                    Start();
-                    break;
-                default:
-                    Console.WriteLine("Invalid input. Please try again.");
-                    //Recursively call the function until the user press a valid key
-                    HandleLastInputsSelection();
-                    break;
+                switch (key) {
+                    case ConsoleKey.DownArrow:
+                        selectedIndex = (selectedIndex + 1) % lastInputs.Count;
+                        break;
+                    case ConsoleKey.UpArrow:
+                        selectedIndex = (selectedIndex - 1 + lastInputs.Count) % lastInputs.Count;
+                        break;
+                    case ConsoleKey.Enter:
+                        SetTime(lastInputs[selectedIndex].GetType().ToString());
+                        return;
+                    case ConsoleKey.Escape:
+                        Console.Clear();
+                        Start();
+                        return;
+                    default:
+                        break;
+                }
             }
         }
 
