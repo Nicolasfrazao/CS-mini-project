@@ -121,8 +121,6 @@ public class TurnOff
         // Display last inputs if the list is not empty
         if (lastInputs.Count > 0)
         {
-            Console.WriteLine("Last Inputs:");
-            Console.WriteLine(string.Join(", ", lastInputs));
             GetLastInputs(lastInputs);
             HandleLastInputsSelection(lastInputs);
         }
