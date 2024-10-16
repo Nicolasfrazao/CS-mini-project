@@ -10,23 +10,54 @@ public class TurnOff
         /// <summary>
         /// This is the main entry point for the program.
         /// </summary>
-        public static void Main() => Welcome();
-
-        public static void Start() {
-            // This method is the main entry point for the program once the user has
-            // pressed Enter to start the program.
-            // It will print out a message to the console, indicating that the program
-            // is starting.
-            Console.WriteLine("Starting . . . ");
-
-            // The method will then call the HandleUserKeyInput method, which will
-            // handle any key presses by the user, such as pressing Enter to continue
-            // the program, or pressing Esc to exit the program.
-            HandleUserKeyInput();
+        static void Main(string[] args) {
+            new Program().Welcome();
         }
 
 
-        public static void placeholder() {
+        void Start() {
+            // This method is the main entry point for the program once the user has
+            // pressed Enter to start the program.
+
+            // The first thing the method does is print out a message to the console,
+            // indicating that the program is starting.
+            Console.WriteLine("Starting . . . ");
+
+            // The method then pauses for 1 second to give the user a chance to
+            // see the message.
+            Thread.Sleep(3000);
+
+            // The method then clears the console, so that the user can't see the
+            // "Starting . . ." message anymore.
+            Console.Clear();
+
+            // The method then calls the HandleUserKeyInput method, which will
+            // handle any key presses by the user, such as pressing Enter to continue
+            // the program, or pressing Esc to exit the program.
+
+            // The HandleUserKeyInput method will return true if the user pressed
+            // Enter to continue the program, or false if the user pressed Esc to
+            // exit the program.
+
+            // If the user pressed Enter, the method will call the SetTime method
+            // with the user's input as a parameter.
+
+            // The SetTime method will then parse the user's input into a DateTime
+            // object, and then use the DateTime object to set the time for the
+            // program to turn off the computer.
+
+            // If the user pressed Esc, the method will do nothing, and the program
+            // will exit.
+
+            if (HandleUserKeyInput() == true) {
+                string TimeInput = placeholder();
+                SetTime(TimeInput);
+
+            }
+        }
+
+
+        public static string placeholder() {
             // This method is a placeholder and does not have any meaningful functionality.
             // It is here to demonstrate how to use the InputWithPlaceholder method.
             // The method will print "HH : MM" to the console, and then move the cursor
@@ -38,9 +69,11 @@ public class TurnOff
             // placeholder text as a parameter.
             var timeInput = InputWithPlaceholder("HH : MM");
 
+
             // Finally, the method will print out a message to the console, displaying
             // what the user typed in.
             Console.WriteLine($"\nYou entered: {timeInput}");
+            return timeInput;
         }
 
         /// <summary>
@@ -100,8 +133,9 @@ public class TurnOff
             return userInput;
         }
 
-        static void Welcome() {
+        void Welcome() {
             // Prints a welcome message to the console
+            Thread.Sleep(3000);
             Console.WriteLine("------------------------------------------------------------------");
             Console.WriteLine("Welcome to the TurnOff program!");
             Console.WriteLine("This program will turn off your computer at a specific time.");
@@ -129,30 +163,38 @@ public class TurnOff
                 Console.WriteLine("Select a valid option.");
             }
         }
-        string GetTime() => DateTime.Now.ToString("HH:mm");
         
-        void SetTime(object input) {
-            // This method takes a string parameter, which is the time the user wants to set as the time to turn off the computer.
-            // It parses the string into a DateTime object, and then checks if the user wants to confirm the time to turn off the computer.
-            // If the user confirms, it sets the last input to the time entered by the user, and then calls the TurnOffComputer method to turn off the computer at the specified time.
+        void SetTime(string input)
+        {
+            // Define the expected format for the time input as "HH:mm"
+            const string DateTimeFormat = "HH:mm";
 
-            var time = input.ToString();
-
-            var DateFormat = "HH : MM";
-            // Parse the string into a DateTime object
-            DateTime TimeToTurnOff = DateTime.ParseExact(time, DateFormat, null);
-
-            // Check if the user wants to confirm the time to turn off the computer
-            if (HandleUserKeyInput()) {
-                // If the user confirms, print a message to the console with the time to turn off the computer
-                Console.WriteLine($"Turning off the computer at {TimeToTurnOff}");
-
-                // Set the last input to the time entered by the user
-                SetLastInputs(time);
-
-                // Call the TurnOffComputer method to turn off the computer at the specified time
-                TurnOffComputer();
+            // Declare a DateTime variable to store the parsed input time
+            DateTime selectedTime;
+            try
+            {
+                // Attempt to parse the input string into a DateTime object using the specified format
+                selectedTime = DateTime.ParseExact(input, DateTimeFormat, null);
             }
+            catch (FormatException)
+            {
+                // If parsing fails, inform the user that the format is invalid and exit the method
+                Console.WriteLine("Invalid time format. Please try again.");
+                return;
+            }
+
+            // Add the formatted time (with ":00" seconds) to the list of last inputs
+            SetLastInputs(selectedTime.ToString(DateTimeFormat + ":00"));
+
+            // Continuously check the current time until it matches or exceeds the selected time
+            while (DateTime.Now < selectedTime)
+            {
+                // Pause the execution for 1 second to avoid busy-waiting
+                Thread.Sleep(1000);
+            }
+
+            // Once the current time matches the selected time, proceed to turn off the computer
+            TurnOffComputer();
         }
 
         /// <summary>
@@ -210,28 +252,57 @@ public class TurnOff
         }
 
 
+        /// <summary>
+        /// This method handles the user's selection of their last inputs.
+        /// </summary>
+        /// <param name="lastInputs">The list of strings that contains the user's last five inputs.</param>
         private void HandleLastInputsSelection(List<string> lastInputs) {
+            // Initialize the selected index to 0
+            // This is the index of the currently selected input in the list
             var selectedIndex = 0;
+
+            // Loop until the user selects an input or presses Esc
             while (true) {
+                // Move the cursor to the beginning of the current line
+                // This is done to overwrite the previous line with the new selected input
                 Console.SetCursorPosition(0, Console.CursorTop);
+
+                // Print the currently selected input to the console
                 Console.WriteLine(lastInputs[selectedIndex]);
+
+                // Read the user's key press
                 var key = Console.ReadKey(intercept: true).Key;
 
+                // Handle the user's key press
                 switch (key) {
                     case ConsoleKey.DownArrow:
+                        // Move the selected index down by one
+                        // If the selected index is already at the end of the list, move it to the beginning
                         selectedIndex = (selectedIndex + 1) % lastInputs.Count;
                         break;
                     case ConsoleKey.UpArrow:
+                        // Move the selected index up by one
+                        // If the selected index is already at the beginning of the list, move it to the end
                         selectedIndex = (selectedIndex - 1 + lastInputs.Count) % lastInputs.Count;
                         break;
                     case ConsoleKey.Enter:
-                        SetTime(lastInputs[selectedIndex].GetType().ToString());
+                        // Call the SetTime method with the currently selected input
+                        // This will set the time to the selected input
+                        SetTime(lastInputs[selectedIndex]);
+
+                        // Return to exit the method
                         return;
                     case ConsoleKey.Escape:
+                        // Clear the console
                         Console.Clear();
+
+                        // Call the Start method to restart the program
                         Start();
+
+                        // Return to exit the method
                         return;
                     default:
+                        // If the user pressed an invalid key, do nothing
                         break;
                 }
             }
@@ -246,6 +317,7 @@ public class TurnOff
 
             if (pressedKey == ConsoleKey.Enter) {
                 Console.WriteLine("Continuing the program...");
+
                 return true;
             }
 

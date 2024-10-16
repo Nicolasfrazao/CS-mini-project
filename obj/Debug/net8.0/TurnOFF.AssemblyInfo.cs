@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TurnOFF")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+47d03a0650bfcd3a6e11c6f3e2310b01b0e643cb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5e0cd431ce0d157d80a22578fbf5c354065695e2")]
 [assembly: System.Reflection.AssemblyProductAttribute("TurnOFF")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TurnOFF")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
