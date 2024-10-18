@@ -12,3 +12,4 @@ c:\Users\nicol\OneDrive\Área de Trabalho\TurnOFF\obj\Release\net8.0\refint\Turn
 c:\Users\nicol\OneDrive\Área de Trabalho\TurnOFF\obj\Release\net8.0\TurnOFF.pdb
 C:\Users\nicol\OneDrive\Área de Trabalho\TurnOFF\obj\Release\net8.0\TurnOFF.genruntimeconfig.cache
 C:\Users\nicol\OneDrive\Área de Trabalho\TurnOFF\obj\Release\net8.0\ref\TurnOFF.dll
+c:\Users\nicol\OneDrive\Área de Trabalho\TurnOFF\obj\Release\net8.0\TurnOFF.sourcelink.json
